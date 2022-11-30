@@ -1,0 +1,11 @@
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    font-style: italic;
+    border-bottom: 2px solid blue;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
