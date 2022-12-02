@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { ReactNode } from "react";
-import images from "../../images/e-ticaret-logo.png";
 import { Link } from "react-router-dom";
 
 const SocialButton = ({
@@ -60,7 +59,7 @@ export default function SmallCentered() {
         justify={"center"}
         align={"center"}
       >
-        <Image src={images} maxH="70px" />
+        <Image  maxH="70px" />
         <Stack direction={"row"} spacing={6}>
           <Link to="/">Home</Link>
           <Link to="/signin">About</Link>

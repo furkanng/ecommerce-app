@@ -13,7 +13,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar />
-        <Container maxW="75%">
+        <Container maxW="85%">
           <Routes>
             <Route index element={<Home />} />
             <Route path="/product/:product_id" element={<ProductDetail />} />
