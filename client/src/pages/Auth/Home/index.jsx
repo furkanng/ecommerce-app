@@ -9,6 +9,7 @@ function Home() {
       <Carosuel />
       <Banner />
       <Featured />
+
     </div>
   );
 }

@@ -7,6 +7,7 @@ import Signup from "./pages/Auth/Signup";
 import ProductDetail from "./pages/ProductDetail";
 import { Container } from "@chakra-ui/react";
 import Footer from "./components/Footer";
+import Bulletin from "./components/Bulletin";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </Container>
+        <Bulletin />
         <Footer />
       </BrowserRouter>
     </div>
