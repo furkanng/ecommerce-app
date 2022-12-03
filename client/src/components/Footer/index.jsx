@@ -1,100 +1,105 @@
 import {
   Box,
-  chakra,
   Container,
+  Link,
+  SimpleGrid,
   Stack,
   Text,
+  Flex,
+  Tag,
   useColorModeValue,
-  VisuallyHidden,
   Image,
 } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import logo from "../../images/logo-1.png";
 
-const SocialButton = ({
-  children,
-  label,
-  href,
-}: {
-  children: ReactNode,
-  label: string,
-  href: string,
-}) => {
+const Logo = (props: any) => {
+  return <Image h={20} src={logo}/>;
+};
+
+const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
-    <chakra.button
-      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
-      rounded={"full"}
-      w={8}
-      h={8}
-      cursor={"pointer"}
-      as={"a"}
-      href={href}
-      display={"inline-flex"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      transition={"background 0.3s ease"}
-      _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
-      }}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
+    <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
       {children}
-    </chakra.button>
+    </Text>
   );
 };
 
-export default function SmallCentered() {
+export default function LargeWithLogoCentered() {
   return (
     <Box
-      mt="6"
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
     >
-      <Container
-        as={Stack}
-        maxW={"6xl"}
-        py={4}
-        spacing={4}
-        justify={"center"}
-        align={"center"}
-      >
-        <Image  maxH="70px" />
-        <Stack direction={"row"} spacing={6}>
-          <Link to="/">Home</Link>
-          <Link to="/signin">About</Link>
-          <Link to="/signup">Blog</Link>
-          <Link to={"#"}>Contact</Link>
-        </Stack>
-      </Container>
-
-      <Box
-        borderTopWidth={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.700")}
-      >
-        <Container
-          as={Stack}
-          maxW={"6xl"}
-          py={4}
-          direction={{ base: "column", md: "row" }}
-          spacing={4}
-          justify={{ base: "center", md: "space-between" }}
-          align={{ base: "center", md: "center" }}
-        >
-          <Text>© 2022 Furkan NG. All rights reserved</Text>
-          <Stack direction={"row"} spacing={6}>
-            <SocialButton label={"GitHub"} href={"https://github.com/furkanng"}>
-              <FaGithub />
-            </SocialButton>
-            <SocialButton label={"Linkedin"} href={"https://www.linkedin.com/in/furkan-guzelgorur/"}>
-              <FaLinkedin/>
-            </SocialButton>
-            <SocialButton label={"Instagram"} href={"https://www.instagram.com/ngfurkan/"}>
-              <FaInstagram />
-            </SocialButton>
+      <Container as={Stack} maxW={"6xl"} py={10}>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+          <Stack align={"flex-start"}>
+            <ListHeader>Product</ListHeader>
+            <Link href={"#"}>Overview</Link>
+            <Stack direction={"row"} align={"center"} spacing={2}>
+              <Link href={"#"}>Features</Link>
+              <Tag
+                size={"sm"}
+                bg={useColorModeValue("green.300", "green.800")}
+                ml={2}
+                color={"white"}
+              >
+                New
+              </Tag>
+            </Stack>
+            <Link href={"#"}>Tutorials</Link>
+            <Link href={"#"}>Pricing</Link>
+            <Link href={"#"}>Releases</Link>
           </Stack>
-        </Container>
+          <Stack align={"flex-start"}>
+            <ListHeader>Company</ListHeader>
+            <Link href={"#"}>About Us</Link>
+            <Link href={"#"}>Press</Link>
+            <Link href={"#"}>Careers</Link>
+            <Link href={"#"}>Contact Us</Link>
+            <Link href={"#"}>Partners</Link>
+          </Stack>
+          <Stack align={"flex-start"}>
+            <ListHeader>Legal</ListHeader>
+            <Link href={"#"}>Cookies Policy</Link>
+            <Link href={"#"}>Privacy Policy</Link>
+            <Link href={"#"}>Terms of Service</Link>
+            <Link href={"#"}>Law Enforcement</Link>
+            <Link href={"#"}>Status</Link>
+          </Stack>
+          <Stack align={"flex-start"}>
+            <ListHeader>Follow Us</ListHeader>
+            <Link href={"#"}>Facebook</Link>
+            <Link href={"#"}>Twitter</Link>
+            <Link href={"#"}>Dribbble</Link>
+            <Link href={"#"}>Instagram</Link>
+            <Link href={"#"}>LinkedIn</Link>
+          </Stack>
+        </SimpleGrid>
+      </Container>
+      <Box py={10}>
+        <Flex
+          align={"center"}
+          _before={{
+            content: '""',
+            borderBottom: "1px solid",
+            borderColor: useColorModeValue("gray.200", "gray.700"),
+            flexGrow: 1,
+            mr: 8,
+          }}
+          _after={{
+            content: '""',
+            borderBottom: "1px solid",
+            borderColor: useColorModeValue("gray.200", "gray.700"),
+            flexGrow: 1,
+            ml: 8,
+          }}
+        >
+          <Logo />
+        </Flex>
+        <Text pt={6} fontSize={"sm"} textAlign={"center"}>
+          © 2022 Chakra Templates. All rights reserved
+        </Text>
       </Box>
     </Box>
   );
