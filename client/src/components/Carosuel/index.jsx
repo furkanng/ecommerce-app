@@ -8,7 +8,14 @@ import {
 } from "@chakra-ui/react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import Slider from "react-slick";
-
+import images1 from "../../images/slider1.jpg"
+import images2 from "../../images/slider2.jpg"
+import images3 from "../../images/slider3.jpg"
+import images4 from "../../images/slider4.jpg"
+import images5 from "../../images/slider5.jpg"
+import images6 from "../../images/slider6.jpg"
+import images7 from "../../images/slider7.jpg"
+import images8 from "../../images/slider8.jpg"
 
 const settings = {
   dots: true,
@@ -31,34 +38,42 @@ export default function CaptionCarousel() {
   const cards = [
     {
       image:
-        "https://n11scdn.akamaized.net/a1/1180_440/22/12/01/64/02/47/53/37/00/13/01/21/51027047743945788762.jpg",
+        `${images1}`,
     },
     {
       image:
-        "https://n11scdn.akamaized.net/a1/1180_440/22/12/01/49/89/23/31/46/82/09/64/03/67423030917244170311.jpg",
+      `${images2}`,
     },
     {
       image:
-        "https://n11scdn.akamaized.net/a1/1180_440/22/12/02/86/71/52/55/32/08/48/37/05/16827310559406474333.jpg",
+      `${images3}`,
     },
     {
       image:
-        "https://n11scdn.akamaized.net/a1/1180_440/22/12/01/87/53/24/93/03/01/86/69/12/31822571266467282870.jpg",
+      `${images4}`,
     },
     {
       image:
-        "https://n11scdn.akamaized.net/a1/1180_440/22/12/01/80/39/71/56/96/73/57/88/49/55020258976093326540.jpg",
+      `${images5}`,
     },
     {
       image:
-        "https://n11scdn.akamaized.net/a1/1180_440/22/12/01/46/42/38/54/01/50/96/46/72/51568320074684478466.jpg",
+      `${images6}`,
+    },
+    {
+      image:
+      `${images7}`,
+    },
+    {
+      image:
+      `${images8}`,
     },
   ];
 
   return (
     <Box
       position={"relative"}
-      height={"600px"}
+      height={"580px"}
       width={"full"}
       overflow={"hidden"}
     >

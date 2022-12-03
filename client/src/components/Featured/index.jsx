@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { Grid } from "@chakra-ui/react";
+import { Grid , Divider} from "@chakra-ui/react";
 import CardItem from "../Card/İndex";
 import { useQuery } from "react-query";
 import { fetchProductList } from "../../api";
@@ -17,6 +17,8 @@ function Featured() {
   return (
     <div>
       <h1 className={styles.title}>Featured products</h1>
+      <Divider color="blue" width="100px"/>
+      <Divider color="blue" width="100px"/>
 
       <Grid
         templateColumns="repeat(3, 2fr)"
