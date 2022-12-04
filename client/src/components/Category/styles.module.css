@@ -1,0 +1,14 @@
+.title {
+    font-size: 22px;
+    font-style: italic;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.173);
+    padding-bottom: 12px;
+    padding-top: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.category:hover {
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.05);
+}

@@ -61,7 +61,7 @@ function Navbar() {
         </Container>
       </Box>
       <div className={styles.headerNav}>
-        <Box w="100%" h="110px">
+        <Box w="100%" h="110px" mt={2} mb={3}>
           <Container maxW="85%">
             <Wrap>
               <WrapItem className={styles.logo}>
@@ -110,7 +110,7 @@ function Navbar() {
             <div className={styles.navMenu}>
               <h3>Clothing & Shoes</h3>
               <h3>Electronic</h3>
-              <h3>Ev & Yaşam</h3>
+              <h3>Home & Living</h3>
               <h3>Cosmetics & Personal Care</h3>
               <h3>Sports & Outdoor</h3>
               <h3>Jewelry & Watches</h3>

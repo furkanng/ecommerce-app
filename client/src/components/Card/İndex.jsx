@@ -17,18 +17,18 @@ import { Link } from "react-router-dom";
 function CardItem({ item }) {
   return (
     <div>
-      <Card className={styles.card} maxW="sm" mt="4">
+      <Card maxW="sm" mt="5">
         <Link to={`/product/${item._id}`}>
           <CardBody>
             <Image
-              className={styles.image}
+            className={styles.image}
               src={item.image}
               alt="Green double couch with wooden legs"
               borderRadius="lg"
             />
             <Stack mt="6" spacing="3">
-              <Heading size="md">{item.title.substring(0, 20)}</Heading>
-              <Text>{item.description.substring(0, 65)}...</Text>
+              <Heading size="sm">{item.title.substring(0, 20)}</Heading>
+              <Text casing="uppercase" color="blackAlpha.600" >{item.category}</Text>
               <Text color="blue.600" fontSize="2xl">
                 ${item.price}
               </Text>

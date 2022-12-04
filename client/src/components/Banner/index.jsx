@@ -8,7 +8,8 @@ function Banner() {
         <div className={styles.card}>
           <img
             className={styles.img}
-            src="https://eticaretv7.demobul.com.tr/storage/general/icon-truck.png"alt="img4"
+            src="https://eticaretv7.demobul.com.tr/storage/general/icon-truck.png"
+            alt="img4"
           />
           <div className={styles.text}>
             <p className={styles.textTitle}>FAST DELIVERY</p>
@@ -23,13 +24,12 @@ function Banner() {
         <div className={styles.card}>
           <img
             className={styles.img}
-            src="https://eticaretv7.demobul.com.tr/storage/general/icon-purchase.png" alt="img3"
+            src="https://eticaretv7.demobul.com.tr/storage/general/icon-purchase.png"
+            alt="img3"
           />
           <div className={styles.text}>
-            <p className={styles.textTitle}>REFUND GUARANTEE</p>
-            <p className={styles.textMessage}>
-              Return your purchased products hassle-free and easy.
-            </p>
+            <p className={styles.textTitle}>SAFE RETURN</p>
+            <p className={styles.textMessage}>Return your products easily.</p>
           </div>
         </div>
       </div>
@@ -38,7 +38,8 @@ function Banner() {
         <div className={styles.card}>
           <img
             className={styles.img}
-            src="https://eticaretv7.demobul.com.tr/storage/general/icon-bag.png" alt="img1"
+            src="https://eticaretv7.demobul.com.tr/storage/general/icon-bag.png"
+            alt="img1"
           />
           <div className={styles.text}>
             <p className={styles.textTitle}>SECURE SHOPPING</p>
@@ -53,7 +54,8 @@ function Banner() {
         <div className={styles.card}>
           <img
             className={styles.img}
-            src="https://eticaretv7.demobul.com.tr/storage/general/icon-operator.png" alt="img2"
+            src="https://eticaretv7.demobul.com.tr/storage/general/icon-operator.png"
+            alt="img2"
           />
           <div className={styles.text}>
             <p className={styles.textTitle}>MOBILE ORDER</p>

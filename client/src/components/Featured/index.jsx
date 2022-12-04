@@ -21,7 +21,7 @@ function Featured() {
       <Divider color="blue" width="100px"/>
 
       <Grid
-        templateColumns="repeat(3, 2fr)"
+        templateColumns="repeat(4, 2fr)"
         templateRows="repeat(1, 1fr)"
         gap={3}
       >
