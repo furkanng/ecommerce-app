@@ -9,6 +9,7 @@ import { Container } from "@chakra-ui/react";
 import Footer from "./components/Footer";
 import Bulletin from "./components/Bulletin";
 
+
 function App() {
   return (
     <div>
