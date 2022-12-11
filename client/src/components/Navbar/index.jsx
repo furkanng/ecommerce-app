@@ -22,7 +22,12 @@ import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import logo from "../../images/logo-1.png";
 import { Link } from "react-router-dom";
 
+import { useAuth } from "../../contexts/AuthContext";
+
 function Navbar() {
+  const { loggedIn } = useAuth();
+  console.log(loggedIn);
+
   return (
     <div>
       <Box w="100%" h="35px" bgGradient="linear(to-r, green.200, pink.500)">
@@ -86,16 +91,30 @@ function Navbar() {
               <WrapItem>
                 <Center w="350px" h="110px" justifyContent="end">
                   <Stack direction="row" spacing={4}>
-                    <Link to="/signin">
-                      <Button colorScheme="pink" variant="solid">
-                        Sign In
-                      </Button>
-                    </Link>
-                    <Link to="/signup">
-                      <Button colorScheme="blue" variant="outline">
-                        Sign Up
-                      </Button>
-                    </Link>
+                    {!loggedIn && (
+                      <>
+                        <Link to="/signin">
+                          <Button colorScheme="pink" variant="solid">
+                            Sign In
+                          </Button>
+                        </Link>
+                        <Link to="/signup">
+                          <Button colorScheme="blue" variant="outline">
+                            Sign Up
+                          </Button>
+                        </Link>
+                      </>
+                    )}
+
+                    {loggedIn && (
+                      <>
+                        <Link to="/profile">
+                          <Button colorScheme="gray" variant="outline">
+                            Profile
+                          </Button>
+                        </Link>
+                      </>
+                    )}
                   </Stack>
                 </Center>
               </WrapItem>
