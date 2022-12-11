@@ -26,8 +26,12 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 import { useAuth } from "../../../contexts/AuthContext";
 
+import { useNavigate } from "react-router-dom";
+
+
 function Signin() {
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -42,6 +46,8 @@ function Signin() {
           password: values.password,
         });
         login(loginResponse);
+        navigate("/profile");
+
         console.log(loginResponse);
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });

@@ -16,6 +16,12 @@ import {
   InputGroup,
   InputRightElement,
   Stack,
+  MenuItem,
+  MenuDivider,
+  MenuList,
+  Avatar,
+  Menu,
+  MenuButton,
 } from "@chakra-ui/react";
 import { PhoneIcon, EmailIcon, SearchIcon } from "@chakra-ui/icons";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
@@ -27,6 +33,12 @@ import { useAuth } from "../../contexts/AuthContext";
 function Navbar() {
   const { loggedIn } = useAuth();
   console.log(loggedIn);
+
+  const { logout } = useAuth();
+
+  const handleLogout = async () => {
+    logout();
+  };
 
   return (
     <div>
@@ -106,13 +118,44 @@ function Navbar() {
                       </>
                     )}
 
+                    {/* <Link to="/profile">
+                      <Button colorScheme="gray" variant="outline">
+                        Profile
+                      </Button>
+                    </Link> */}
+
                     {loggedIn && (
                       <>
-                        <Link to="/profile">
-                          <Button colorScheme="gray" variant="outline">
-                            Profile
-                          </Button>
-                        </Link>
+                        <Menu>
+                          <MenuButton
+                            as={Button}
+                            rounded={"full"}
+                            variant={"link"}
+                            cursor={"pointer"}
+                            minW={0}
+                          >
+                            <Avatar />
+                          </MenuButton>
+                          <MenuList alignItems={"center"}>
+                            <br />
+                            <Center>
+                              <Avatar size={"2xl"} />
+                            </Center>
+                            <br />
+                            <Center>
+                              <p>Username</p>
+                            </Center>
+                            <br />
+                            <MenuDivider />
+                            <MenuItem>
+                              <Link to="/profile">
+                                Account Settings
+                              </Link>
+                            </MenuItem>
+                            <MenuItem>degisecek</MenuItem>
+                            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                          </MenuList>
+                        </Menu>
                       </>
                     )}
                   </Stack>
