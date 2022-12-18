@@ -11,6 +11,7 @@ import Bulletin from "./components/Bulletin";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Basket from "./pages/Basket";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/profile" element={<Profile />} />
             </Route>
+            <Route path="*" element={<Error />} />
           </Routes>
         </Container>
         <Bulletin />

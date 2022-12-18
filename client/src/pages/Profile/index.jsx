@@ -51,5 +51,3 @@ function Profile() {
 
 export default Profile;
 
-
-{/* <code>{JSON.stringify(user)}</code> */ }

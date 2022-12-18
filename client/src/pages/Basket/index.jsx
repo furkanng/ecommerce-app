@@ -10,9 +10,9 @@ import {
     Image,
     Th,
     Td,
-    TableCaption,
     TableContainer,
     Button,
+    Text,
 } from "@chakra-ui/react";
 
 import { DeleteIcon } from "@chakra-ui/icons";
@@ -21,7 +21,9 @@ import { useBasket } from "../../contexts/BasketContext";
 import styles from "./styles.module.css"
 function Basket() {
 
-    const { items } = useBasket();
+    const { items, removeFromBasket } = useBasket();
+
+    const total = items.reduce((acc, obj) => acc + obj.price, 0)
 
     return (
         <Box m={6}>
@@ -41,7 +43,6 @@ function Basket() {
 
                         <TableContainer mt={5}>
                             <Table variant='striped' colorScheme='teal'>
-                                <TableCaption>Imperial to metric conversion factors</TableCaption>
                                 <Thead>
                                     <Tr>
                                         <Th>Image</Th>
@@ -62,7 +63,7 @@ function Basket() {
                                             <Td>{item.title}</Td>
                                             <Td textAlign="center">${item.price}</Td>
                                             <Td textAlign="center">
-                                                <Button>
+                                                <Button onClick={() => removeFromBasket(item._id)}>
                                                     <DeleteIcon />
                                                 </Button>
                                             </Td>
@@ -73,6 +74,11 @@ function Basket() {
                                 </Tbody>
                             </Table>
                         </TableContainer>
+
+
+                        <Box mt={8} p={5}>
+                            <Text float="right" fontSize="xl">Total Price: ${total} </Text>
+                        </Box>
 
 
 
