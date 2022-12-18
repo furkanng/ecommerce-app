@@ -16,9 +16,11 @@ import {
 } from "@chakra-ui/react";
 import { MdLocalShipping } from "react-icons/md";
 import moment from "moment";
+import { useBasket } from "../../contexts/BasketContext";
 
 function ProductDetail() {
   const { product_id } = useParams();
+  const { addToBasket, items } = useBasket();
 
   const { isLoading, isError, data } = useQuery(["product", product_id], () =>
     fetchProduct(product_id)
@@ -31,6 +33,8 @@ function ProductDetail() {
   if (isError) {
     <div>Error.</div>;
   }
+
+  const findBasketItem = items.find((item) => item._id === product_id)
 
   return (
     <div>
@@ -105,8 +109,11 @@ function ProductDetail() {
               transform: "translateY(2px)",
               boxShadow: "lg",
             }}
+            onClick={() => addToBasket(data, findBasketItem)}
           >
-            Add to cart
+            {
+              findBasketItem ? "remove from basket" : " Add to cart"
+            }
           </Button>
 
           <Stack direction="row" alignItems="center" justifyContent={"center"}>

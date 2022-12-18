@@ -29,12 +29,14 @@ import logo from "../../images/logo-1.png";
 import { Link } from "react-router-dom";
 
 import { useAuth } from "../../contexts/AuthContext";
+import { useBasket } from "../../contexts/BasketContext";
 
 function Navbar() {
   const { loggedIn } = useAuth();
   console.log(loggedIn);
 
   const { logout } = useAuth();
+  const { items } = useBasket();
 
   const handleLogout = async () => {
     logout();
@@ -118,14 +120,13 @@ function Navbar() {
                       </>
                     )}
 
-                    {/* <Link to="/profile">
-                      <Button colorScheme="gray" variant="outline">
-                        Profile
-                      </Button>
-                    </Link> */}
-
                     {loggedIn && (
                       <>
+                        <Link to="/basket">
+                          <Avatar src="https://media.istockphoto.com/id/898475762/tr/vekt%C3%B6r/ye%C5%9Fil-al%C4%B1%C5%9Fveri%C5%9F-arabas%C4%B1-sepeti-simge-vekt%C3%B6r.jpg?s=612x612&w=0&k=20&c=JX175hzJrqqDIEEFZTRa71jhAT9Tu_R7_ucmyJHpSbM=" />
+                          {items.length}
+                        </Link>
+
                         <Menu>
                           <MenuButton
                             as={Button}
@@ -185,7 +186,7 @@ function Navbar() {
           </Container>
         </Box>
       </div>
-    </div>
+    </div >
   );
 }
 
