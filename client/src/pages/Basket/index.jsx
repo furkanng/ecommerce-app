@@ -13,15 +13,52 @@ import {
     TableContainer,
     Button,
     Text,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    Stack,
+    FormControl,
+    FormLabel,
+    Textarea,
 } from "@chakra-ui/react";
 
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { useBasket } from "../../contexts/BasketContext";
 import styles from "./styles.module.css"
+import { useState } from 'react';
+import { postOrder } from '../../api';
+
+
 function Basket() {
 
-    const { items, removeFromBasket } = useBasket();
+    const [address, setAddress] = useState("")
+
+    const initialRef = React.useRef(null)
+    const finalRef = React.useRef(null)
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const { items, removeFromBasket, emptyBasket } = useBasket();
+
+    const handleSubmitForm = async () => {
+        const itemIds = items.map((item) => item._id);
+
+        const input = {
+            address,
+            items: JSON.stringify(itemIds),
+        };
+
+        await postOrder(input);
+
+        emptyBasket();
+        onClose();
+    }
 
     const total = items.reduce((acc, obj) => acc + obj.price, 0)
 
@@ -77,8 +114,38 @@ function Basket() {
 
 
                         <Box mt={8} p={5}>
-                            <Text float="right" fontSize="xl">Total Price: ${total} </Text>
+                            <Stack align="end">
+                                <Text fontSize="xl">Total Price: ${total} </Text>
+                                <Button colorScheme="green" onClick={onOpen}>Order</Button>
+                            </Stack>
                         </Box>
+
+                        <Modal
+                            initialFocusRef={initialRef}
+                            finalFocusRef={finalRef}
+                            isOpen={isOpen}
+                            onClose={onClose}
+                        >
+                            <ModalOverlay />
+                            <ModalContent>
+                                <ModalHeader>Order</ModalHeader>
+                                <ModalCloseButton />
+                                <ModalBody pb={6}>
+                                    <FormControl>
+                                        <FormLabel>Address</FormLabel>
+                                        <Textarea ref={initialRef} placeholder='Address' value={address} onChange={(e) => setAddress(e.target.value)} />
+                                    </FormControl>
+
+                                </ModalBody>
+
+                                <ModalFooter>
+                                    <Button colorScheme='blue' mr={3} onClick={handleSubmitForm}>
+                                        Save
+                                    </Button>
+                                    <Button onClick={onClose}>Cancel</Button>
+                                </ModalFooter>
+                            </ModalContent>
+                        </Modal>
 
 
 
