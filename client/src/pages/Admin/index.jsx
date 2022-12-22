@@ -2,8 +2,6 @@ import React from 'react'
 import { Link, Outlet } from "react-router-dom";
 import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 
-
-
 function Admin() {
     return (
         <div>
@@ -11,17 +9,17 @@ function Admin() {
                 <Grid templateColumns='repeat(3, 1fr)' gap={6}>
                     <GridItem w='100%' h='12' display="flex" justifyContent="center" p={2}>
                         <Link to="/admin/home">
-                            <Text>Home</Text>
+                            <Text fontSize="lg">Home</Text>
                         </Link>
                     </GridItem>
                     <GridItem w='100%' h='12' display="flex" justifyContent="center" p={2} >
                         <Link to="/admin/orders">
-                            <Text>Orders</Text>
+                            <Text fontSize="lg">Orders</Text>
                         </Link>
                     </GridItem>
                     <GridItem w='100%' h='12' display="flex" justifyContent="center" p={2} >
                         <Link to="/admin/products">
-                            <Text>Products</Text>
+                            <Text fontSize="lg">Products</Text>
                         </Link>
                     </GridItem>
                 </Grid>
