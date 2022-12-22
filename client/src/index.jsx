@@ -8,6 +8,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
+import 'antd/dist/reset.css';
+
 //Contexts
 import { AuthProvider } from "./contexts/AuthContext";
 import { BasketProvider } from "./contexts/BasketContext";
