@@ -12,6 +12,11 @@ import Profile from "./pages/Profile";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Basket from "./pages/Basket";
 import Error from "./pages/Error";
+import Admin from './pages/Admin'
+import AdminHome from './pages/Admin/Home';
+import Orders from './pages/Admin/Orders';
+import Products from './pages/Admin/Products';
+
 
 function App() {
   return (
@@ -27,6 +32,12 @@ function App() {
             <Route path="/basket" element={<Basket />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/profile" element={<Profile />} />
+              <Route path="/admin" element={<Admin />} >
+                <Route index element={<AdminHome />} />
+                <Route path="home" element={<AdminHome />} />
+                <Route path="orders" element={<Orders />} />
+                <Route path="products" element={<Products />} />
+              </Route>
             </Route>
             <Route path="*" element={<Error />} />
           </Routes>

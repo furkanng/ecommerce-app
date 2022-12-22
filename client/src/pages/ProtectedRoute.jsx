@@ -3,7 +3,13 @@ import { useAuth } from "../contexts/AuthContext";
 
 const ProtectedRoute = () => {
 
-    const { loggedIn } = useAuth();
+    const { loggedIn, user } = useAuth();
+
+    if (user.role !== "admin") {
+        return (
+            <Navigate to="/" />
+        )
+    }
 
     if (loggedIn) {
         return (
