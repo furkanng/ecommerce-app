@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Auth/Home";
 import Signin from "./pages/Auth/Signin";
 import Signup from "./pages/Auth/Signup";
-import ProductDetail from "./pages/ProductDetail";
+import ProductDetail from "./pages/Admin/ProductDetail";
 import { Container } from "@chakra-ui/react";
 import Footer from "./components/Footer";
 import Bulletin from "./components/Bulletin";
@@ -37,6 +37,7 @@ function App() {
                 <Route path="home" element={<AdminHome />} />
                 <Route path="orders" element={<Orders />} />
                 <Route path="products" element={<Products />} />
+                <Route path="products/:product_id" element={<ProductDetail />} />
               </Route>
             </Route>
             <Route path="*" element={<Error />} />
